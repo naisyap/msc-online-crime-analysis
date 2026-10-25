@@ -1,0 +1,21 @@
+SOURCE FILE MANIFEST
+
+Reporting period: 1 January-30 June 2026
+
+Instagram
+  File: data/Instagram_DSA_Transparency_H1_2026.zip
+  Role: Source package for selected own-initiative DSA moderation measures.
+
+TikTok
+  File: data/TikTok_DSA_Transparency_H1_2026.zip
+  Role: Source package for selected own-initiative DSA moderation measures.
+
+YouTube
+  File: data/YouTube_DSA_Transparency_H1_2026.zip
+  Role: Source package for selected own-initiative DSA moderation measures.
+
+Snapchat
+  File: data/Snapchat_DSA_Transparency_H1_2026.xlsx
+  Role: Source workbook for selected own-initiative DSA moderation measures.
+
+The source publications and reporting dates are documented in the dissertation's reference list and documentary corpus appendix.
