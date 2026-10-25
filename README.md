@@ -1,77 +1,205 @@
+
 # Online Platform Responses to Crime Risks
 
-**MSc dissertation research | University College London | 2026**
+**MSc Dissertation Research | University College London | 2026**
 
 ## Overview
 
-This project examines publicly reported approaches to online crime risks on **Instagram, TikTok, YouTube and Snapchat**, focusing on **scams and fraud, illicit drugs/regulated goods, and child sexual abuse material or exploitation (CSAM/CSEA)**.
+This project examines how four major social media platforms—**Instagram, TikTok, YouTube, and Snapchat**—publicly report their responses to online crime risks.
 
-The wider dissertation combines comparative qualitative analysis of platform policies and Digital Services Act (DSA) reports with a **descriptive R-based extraction** of selected moderation metrics from the **January–June 2026** DSA transparency reports. This repository highlights the code and a small reproducibility output, **not the full dissertation**.
+The research focuses on three crime categories:
+- Scams and fraud
+- Illicit drugs and regulated goods
+- Child sexual abuse material and child sexual exploitation (CSAM/CSEA)
 
-## What the code does
+The wider dissertation combines comparative qualitative analysis of platform policies, risk assessments, and EU Digital Services Act (DSA) reports with quantitative data processing using **R**.
 
-- Imports harmonised transparency tables from three provider ZIP packages and a Snapchat Excel workbook.
-- Normalises headers and extracts precisely matched category rows.
-- Converts reported numeric fields and preserves missing values rather than treating them as zeros.
-- Keeps broad prohibited-products categories separate from drug-specific claims, and provider-specific CHILD_SAFETY data separate from CSAM counts.
-- Exports selected descriptive metrics to CSV for checking against the source tables.
+This GitHub repository showcases the R analysis code, selected datasets, and key research insights rather than the full dissertation.
 
-## Repository contents
+## Research Objectives
 
-- [`scripts/Naisya_Permana_SECU0045_Analysis_Code.R`](scripts/Naisya_Permana_SECU0045_Analysis_Code.R) — R data extraction script, updated for the repository folder layout.
-- [`results/SECU0045_selected_H1_2026_metrics.csv`](results/SECU0045_selected_H1_2026_metrics.csv) — selected exported metrics.
-- [`SOURCE_MANIFEST.txt`](SOURCE_MANIFEST.txt) — original source-file list.
+- Examine how major online platforms identify and address different online crime risks.
+- Analyse publicly reported moderation measures and preventive interventions.
+- Process and compare selected DSA transparency-report statistics.
+- Identify limitations in platform reporting and the interpretation of moderation data.
 
-## Brief insights
+## Tools and Technologies
 
-- Platforms report a mixture of detection, content restrictions, account/service interventions and preventive measures; content removal alone does not capture the full response.
-- DSA moderation metrics use differing categories and reporting units, which limits direct cross-platform comparisons.
-- These figures describe **reported moderation activity**, not confirmed crimes or evidence that any intervention reduced offending.
+**Programming Language:** R
 
-## Reproducing the analysis
+**R Packages:**
+- readr
+- readxl
+- dplyr
+- tibble
 
-Requires R and the packages `readr`, `readxl`, `dplyr` and `tibble`:
+**Analytical Techniques:**
+- Data cleaning and preprocessing
+- Data extraction and transformation
+- Descriptive statistical analysis
+- Data validation and quality checks
+- Comparative document analysis
+- Missing data handling
+
+## What the Code Does
+
+The R script processes selected moderation statistics from the January–June 2026 DSA transparency reports.
+
+The workflow:
+
+1. Imports harmonised transparency-report tables from three ZIP packages and one Excel workbook.
+2. Standardises column headers and extracts specified moderation categories.
+3. Converts numerical fields into a consistent format.
+4. Preserves missing observations rather than replacing them with zero.
+5. Validates category matching to prevent incorrect data extraction.
+6. Exports selected descriptive statistics to a CSV file.
+
+The analysis preserves differences in platform reporting categories to avoid misleading comparisons.
+
+## Repository Structure
+
+```text
+msc-online-crime-analysis/
+|
+|-- scripts/
+|   |-- Naisya_Permana_SECU0045_Analysis_Code.R
+|
+|-- results/
+|   |-- SECU0045_selected_H1_2026_metrics.csv
+|   |-- SECU0045_selected_H1_2026_metrics_reproduced.csv
+|
+|-- README.md
+|-- SOURCE_MANIFEST.txt
+```
+
+**File descriptions:**
+
+- **scripts/** — R code used to process and extract transparency-report statistics.
+- **results/** — Original and reproduced analytical outputs.
+- **SOURCE_MANIFEST.txt** — Details of the original source datasets.
+- **README.md** — Research overview, methodology, findings, and reproduction instructions.
+
+## Data Sources
+
+The analysis uses publicly available transparency-report data from four major online platforms, covering **1 January–30 June 2026**.
+
+The original source files are:
+
+- Instagram_DSA_Transparency_H1_2026.zip
+- TikTok_DSA_Transparency_H1_2026.zip
+- YouTube_DSA_Transparency_H1_2026.zip
+- Snapchat_DSA_Transparency_H1_2026.xlsx
+
+These files contain provider-reported moderation statistics published under the EU Digital Services Act.
+
+The original source packages are not included in this repository. They must be obtained separately to reproduce the analysis.
+
+See `SOURCE_MANIFEST.txt` for the source-file list.
+
+## Key Research Insights
+
+### 1. Multiple Crime Prevention Mechanisms
+
+Online platforms report different approaches to addressing crime risks, including automated detection, content restrictions, account enforcement, reporting mechanisms, and preventive measures.
+
+Content removal alone does not fully represent the range of interventions reported by platforms.
+
+### 2. Differences in Platform Reporting
+
+The platforms use different reporting categories and definitions, which limits direct comparisons between their moderation statistics.
+
+Reported figures should therefore be interpreted within each platform's reporting framework.
+
+### 3. Limitations of Moderation Statistics
+
+Reported moderation measures do not necessarily represent the number of crimes committed, victims affected, or unique incidents.
+
+These statistics describe platform enforcement activity and cannot independently establish whether crime prevention measures reduce offending.
+
+## Reproducing the Analysis
+
+### Requirements
+
+- R
+- RStudio (recommended)
+
+Install the required R packages if they are not already installed:
 
 ```r
 install.packages(c("readr", "readxl", "dplyr", "tibble"))
 ```
 
-Place the following **original provider source packages** in the repository-level `data/` folder (not `scripts/data/`):
+### Step 1: Prepare the Source Data
 
-- `data/Instagram_DSA_Transparency_H1_2026.zip`
-- `data/TikTok_DSA_Transparency_H1_2026.zip`
-- `data/YouTube_DSA_Transparency_H1_2026.zip`
-- `data/Snapchat_DSA_Transparency_H1_2026.xlsx`
+Create a `data/` folder in the repository's main directory.
 
-These original files are **not included** in this repository. See `SOURCE_MANIFEST.txt`. The `data/` directory is excluded from Git by `.gitignore`, except its placeholder file.
+Place the four original DSA transparency-report files inside this folder.
 
-From any working directory, run the script by its path (for example, from repository root):
+```text
+msc-online-crime-analysis/
+|
+|-- data/
+|   |-- Instagram_DSA_Transparency_H1_2026.zip
+|   |-- TikTok_DSA_Transparency_H1_2026.zip
+|   |-- YouTube_DSA_Transparency_H1_2026.zip
+|   |-- Snapchat_DSA_Transparency_H1_2026.xlsx
+|
+|-- scripts/
+|-- results/
+```
+
+The `data/` folder is intended for local source files and does not need to be uploaded to GitHub.
+
+### Step 2: Run the R Script
+
+From the repository's main directory, execute:
 
 ```bash
 Rscript scripts/Naisya_Permana_SECU0045_Analysis_Code.R
 ```
 
-Or open the script in RStudio and click **Source**. The script finds the repository root from its own location and outputs:
+Alternatively, open the script in RStudio, click **Source**, and execute `main()` in the Console if necessary.
+
+The script automatically locates the repository directory and processes the source files.
+
+### Step 3: Check the Output
+
+After successful execution, the script generates:
 
 `results/SECU0045_selected_H1_2026_metrics_reproduced.csv`
 
-Compare this output against `results/SECU0045_selected_H1_2026_metrics.csv`. The generated `_reproduced.csv` file is ignored by Git so reruns do not create unnecessary repository changes.
+The output contains **15 records and 8 variables**, including moderation measures relating to fraud, prohibited products, and child safety.
 
-The script also accepts `--root` and `--out` path overrides. Relative paths are interpreted from the **repository root** (absolute paths also work):
+Missing observations remain missing rather than being converted to zero.
 
-```bash
-Rscript scripts/Naisya_Permana_SECU0045_Analysis_Code.R --root data --out results/custom_metrics.csv
+## Reproducibility Verification
+
+The R analysis script was successfully executed in RStudio using the original January–June 2026 DSA transparency-report datasets.
+
+The reproduced dataset was compared against the original dissertation analysis output using:
+
+```r
+all.equal(original, reproduced)
 ```
 
-**Reproducibility status:** File locations and original extraction logic have been reviewed, but a full execution and comparison has **not** been performed because the four provider source packages were not supplied with these uploads. Install the required R packages and supply those files to validate the exported metrics.
+**Verification result: `TRUE`**
 
-## Interpretation and limitations
+This confirmed consistency between the original and reproduced datasets.
 
-The exported data are **provider-reported moderation measures**, not numbers of offences, victims, unique incidents or proof of crime reduction. Blank cells are missing values, not automatically zero. Category differences and reporting definitions limit inference about which platform is safer.
+The verified output is included in the `results/` directory.
 
-### Reproducibility Verification
+## Limitations
 
-The R analysis script was successfully executed using the original H1 2026 Digital Services Act transparency-report datasets.
+- The analysis relies on publicly reported platform statistics.
+- Reporting definitions and categories vary between platforms.
+- Moderation measures cannot be interpreted directly as crime prevalence.
+- Some reported categories combine multiple types of prohibited activity.
+- The analysis is descriptive and does not establish causal relationships between moderation interventions and crime reduction.
 
-The analysis generated a CSV containing 15 records and 8 variables. The reproduced output was compared against the original dissertation results using R's `all.equal()` function, which returned `TRUE`, confirming consistency between the two datasets.
-*Academic portfolio project; based on an MSc dissertation at UCL.*
+## Academic Context
+
+This project was developed as part of an **MSc dissertation at University College London (UCL)** in 2026.
+
+The full dissertation investigates platform responses to online crime risks through comparative documentary analysis and descriptive data processing.
+
+This repository presents selected analytical materials for academic and professional portfolio purposes.
