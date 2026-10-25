@@ -69,4 +69,9 @@ Rscript scripts/Naisya_Permana_SECU0045_Analysis_Code.R --root data --out result
 
 The exported data are **provider-reported moderation measures**, not numbers of offences, victims, unique incidents or proof of crime reduction. Blank cells are missing values, not automatically zero. Category differences and reporting definitions limit inference about which platform is safer.
 
+### Reproducibility Verification
+
+The R analysis script was successfully executed using the original H1 2026 Digital Services Act transparency-report datasets.
+
+The analysis generated a CSV containing 15 records and 8 variables. The reproduced output was compared against the original dissertation results using R's `all.equal()` function, which returned `TRUE`, confirming consistency between the two datasets.
 *Academic portfolio project; based on an MSc dissertation at UCL.*
